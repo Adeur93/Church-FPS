@@ -1,7 +1,7 @@
 {
   "name": "church-fps",
   "version": "1.0.0",
-  "description": "Free open source multiplatform presentation software",
+  "description": "Free open source cross-platform presentation software",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
