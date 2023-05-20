@@ -1,4 +1,4 @@
 
-# Church FPS
+# FreePresenterSoftware
 
-Church FPS significa Free Presenter Software
+Una aplicación para presentación multipantalla diseñada con Electron.
