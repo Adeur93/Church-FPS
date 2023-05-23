@@ -12,20 +12,31 @@ if (process.env.NODE_ENV !== "production") {
 
 let mainWindow
 let VentanaAbout
+let VentanaProyector
 
 
 app.on("ready", () => {
-    mainWindow = new BrowserWindow({ width: 1280, height: 720 });
+
+    const menusuperior = Menu.buildFromTemplate(menuprincipal);
+    Menu.setApplicationMenu(menusuperior);
+
+    mainWindow = new BrowserWindow({ width: 1280, height:720 });
     mainWindow.loadURL(url.format({
         pathname: path.join(__dirname, "views/index.html"),
         protocol: "file",
         slashes: true
-    }))
-    
-    const menusuperior = Menu.buildFromTemplate(menuprincipal);
-    Menu.setApplicationMenu(menusuperior);
+    }));
 
-    mainWindow.on("closed", () => { app.quit(); })
+    VentanaProyector = new BrowserWindow();
+    VentanaProyector.setMenu(null)
+    VentanaProyector.loadURL(url.format({
+        pathname: path.join(__dirname, "views/projection.html"),
+        protocol: "file",
+        slashes: true
+    }));
+    
+    mainWindow.on("closed", () => { app.quit(); });
+
 });
 
 
