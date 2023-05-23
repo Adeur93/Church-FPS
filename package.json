@@ -2,9 +2,9 @@
   "name": "church-fps",
   "version": "1.0.0",
   "description": "Free open source cross-platform presentation software",
-  "main": "main.js",
+  "main": "src/main.js",
   "scripts": {
-    "start": "electron .",
+    "start": "electron src/main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -31,8 +31,11 @@
   "devDependencies": {
     "electron": "^24.3.0",
     "standart": "^6.1.0"
-  }
-  ,"eslintConfig": {
+  },
+  "eslintConfig": {
     "extends": "standard"
+  },
+  "dependencies": {
+    "electron-reload": "^2.0.0-alpha.1"
   }
 }
