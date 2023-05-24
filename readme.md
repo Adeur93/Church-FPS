@@ -1,4 +1,4 @@
 
-# FreePresenterSoftware
+# Church FPS - Free Presenter Software
 
-Una aplicación para presentación multipantalla diseñada con Electron.
+Una aplicación para presentación multipantalla para iglesias diseñada con Electron.
