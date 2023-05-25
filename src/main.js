@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu, globalShortcut, } = require("electron");
+const { app, BrowserWindow, Menu, screen, } = require("electron");
 const url = require("url");
 const path = require("path");
 
@@ -16,13 +16,6 @@ let VentanaProyector;
 
 app.on("ready", () => {
 
-    globalShortcut.register('F11', () => {
-        if (VentanaProyector) {
-            const isFullScreen = VentanaProyector.isFullScreen();
-            VentanaProyector.setFullScreen(!isFullScreen);
-        }
-    });
-
     const MenuSuperior = Menu.buildFromTemplate(MenuPrincipal);
     Menu.setApplicationMenu(MenuSuperior);
 
@@ -36,14 +29,26 @@ app.on("ready", () => {
     MainWindow.show();
     MainWindow.on("closed", () => { app.quit(); });
 
-    VentanaProyector = new BrowserWindow({ frame: false });
-    VentanaProyector.setMenu(null)
-    VentanaProyector.loadURL(url.format({
-        pathname: path.join(__dirname, "views/projection.html"),
-        protocol: "file",
-        slashes: true
-    }));
-    VentanaProyector.setAlwaysOnTop("true")
+    const displays = screen.getAllDisplays()
+    const externalDisplay = displays.find((display) => {
+        return display.bounds.x !== 0 || display.bounds.y !== 0
+    })
+
+    if (externalDisplay) {
+        VentanaProyector = new BrowserWindow({
+            frame: false,
+            x: externalDisplay.bounds.x + 50,
+            y: externalDisplay.bounds.y + 50,
+            fullscreen: true,
+        });
+        VentanaProyector.setMenu(null)
+        VentanaProyector.loadURL(url.format({
+            pathname: path.join(__dirname, "views/projection.html"),
+            protocol: "file",
+            slashes: true
+        }));
+        VentanaProyector.setAlwaysOnTop("true")
+    }
 });
 
 
@@ -121,17 +126,6 @@ const MenuPrincipal = [
             { label: "Versiones de la biblia" },
             { label: "Imágenes" },
             { label: "Videos" },
-        ]
-    },
-    {
-        label: "Proyección",
-        submenu: [
-            {
-                label: "Pantalla completa", accelerator: "F11", click() {
-                    if (VentanaProyector) {
-                        const isFullScreen = VentanaProyector.isFullScreen();
-                        VentanaProyector.setFullScreen(!isFullScreen);
-                    } } },
         ]
     },
     {
