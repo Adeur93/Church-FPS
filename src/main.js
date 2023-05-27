@@ -92,16 +92,16 @@ function CrearVentanaAbout() {
         protocol: "file",
         slashes: true
     }));
-    VentanaAbout.setAlwaysOnTop("true")
 };
 
 
 function CrearVentanaAjustes() {
     const VentanaAjustes = new BrowserWindow({
-        width: 1280,
-        height: 720,
+        width: 900,
+        height: 900,
         maximizable: false,
         minimizable: false,
+        resizable: false,
         parent: MainWindow,
         modal: true
     });
@@ -111,7 +111,6 @@ function CrearVentanaAjustes() {
         protocol: "file",
         slashes: true
     }));
-    VentanaAjustes.setAlwaysOnTop("true")
 };
 
 
