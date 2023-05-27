@@ -1,17 +1,16 @@
-const { app, BrowserWindow, Menu, screen, } = require("electron");
+const { app, BrowserWindow, Menu, screen, protocol, } = require("electron");
 const url = require("url");
 const path = require("path");
 
-
-if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV !== "production"){
     require("electron-reload")(__dirname, {
         electron: path.join(__dirname, "../node_modules", ".bin", "electron")
     })
 }
 
-
 let MainWindow;
 let VentanaProyector;
+let AvisoPantala
 
 
 app.on("ready", () => {
@@ -19,11 +18,15 @@ app.on("ready", () => {
     const MenuSuperior = Menu.buildFromTemplate(MenuPrincipal);
     Menu.setApplicationMenu(MenuSuperior);
 
-    MainWindow = new BrowserWindow({ show:false });
+    MainWindow = new BrowserWindow({
+        show: false,
+        minHeight: 650,
+        minWidth: 800,
+    });
     MainWindow.loadURL(url.format({
         pathname: path.join(__dirname, "views/index.html"),
         protocol: "file",
-        slashes: true
+        slashes: true,
     }));
     MainWindow.maximize();
     MainWindow.show();
@@ -47,7 +50,24 @@ app.on("ready", () => {
             protocol: "file",
             slashes: true
         }));
-        VentanaProyector.setAlwaysOnTop("true")
+    }
+
+    if (!externalDisplay) {
+        AvisoPantala = new BrowserWindow({
+            width: 500,
+            height: 500,
+            resizable: false,
+            movable: false,
+            maximizable: false,
+            minimizable: false,
+            parent: MainWindow,
+            modal: true
+        });
+        AvisoPantala.loadURL(url.format({
+            pathname: path.join(__dirname, "views/avisoNoPantalla2.html"),
+            protocol: "file",
+            slashes: true
+        }));    
     }
 });
 
@@ -116,16 +136,15 @@ const MenuPrincipal = [
             { label: "Cortar", accelerator: "CommandOrControl+X" },
             { label: "Pegar", accelerator: "CommandOrControl+V" },
             { type: "separator" },
-            { label: "Ajustes", click() { CrearVentanaAjustes(); } },
+            { label: "Ajustes", click() { CrearVentanaAjustes(); } }
         ]
     },
     {
         label: "Importar",
         submenu: [
-            { label: "Cancioneros" },
-            { label: "Versiones de la biblia" },
             { label: "Imágenes" },
             { label: "Videos" },
+            { label: "presentaciones"}
         ]
     },
     {

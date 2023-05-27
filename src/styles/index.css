@@ -1,0 +1,63 @@
+:root {
+    --dark-grey: #1E1E1E;
+    --light-grey: #393E46;
+    --navy-blue: #4064F2;
+    --cloud-white: #F1F6F9;
+}
+
+* {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    justify-content: center;
+    margin-left: 10px;
+    margin-right: 30px;
+    margin-top: 10px;
+    margin-bottom: 0;
+
+    box-sizing: border-box;
+    background-color: black;
+    color: var(--cloud-white);
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 50% 25% 25%;
+    grid-template-rows: 70% 1fr;
+    gap: 10px 10px;
+    grid-template-areas:
+        "contenido guion estilos"
+        "contenido vista-previa vista-live";
+    height: 97vh;
+}
+
+.header {
+    grid-area: header;
+    background-color: var(--dark-grey);
+}
+
+.contenido {
+    grid-area: contenido;
+    background-color: var(--dark-grey);
+}
+
+.guion {
+    grid-area: guion;
+    background-color: var(--dark-grey);
+}
+
+.estilos {
+    grid-area: estilos;
+    background-color: var(--dark-grey);
+}
+
+.vista-previa {
+    grid-area: vista-previa;
+    background-color: var(--dark-grey);
+}
+
+.vista-live {
+    grid-area: vista-live;
+    background-color: var(--dark-grey);
+}
