@@ -15,7 +15,6 @@ body {
     margin-right: 30px;
     margin-top: 10px;
     margin-bottom: 0;
-
     box-sizing: border-box;
     background-color: black;
     color: var(--cloud-white);
@@ -32,32 +31,69 @@ body {
     height: 97vh;
 }
 
-.header {
-    grid-area: header;
-    background-color: var(--dark-grey);
+.encabezado {
+    width: 100%;
+    height: 25px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    line-height: 25px;
+    text-align: center;
+    background-color: var(--light-grey);
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    display: inline;
+}
+
+li a {
+    text-decoration: none;
+    text-align: center;
+    margin: 5px;
+    padding-top: 3px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 15px;
+    line-height: 35px;
+    color: var(--cloud-white);
+    background-color: var(--navy-blue);
+}
+
+li a:hover {
+    background-color: rgb(51, 51, 255);
+    transform: scale(6);
 }
 
 .contenido {
     grid-area: contenido;
     background-color: var(--dark-grey);
+    border-radius: 15px;
 }
 
 .guion {
     grid-area: guion;
     background-color: var(--dark-grey);
+    border-radius: 15px;
 }
 
 .estilos {
     grid-area: estilos;
     background-color: var(--dark-grey);
+    border-radius: 15px;
 }
 
 .vista-previa {
     grid-area: vista-previa;
     background-color: var(--dark-grey);
+    border-radius: 15px;
 }
 
 .vista-live {
     grid-area: vista-live;
     background-color: var(--dark-grey);
+    border-radius: 15px;
 }

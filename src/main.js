@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu, screen, protocol, } = require("electron");
+const { app, BrowserWindow, Menu, screen, } = require("electron");
 const url = require("url");
 const path = require("path");
 
