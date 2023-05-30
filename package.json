@@ -30,10 +30,11 @@
   "homepage": "https://github.com/Adeur93/Church-FPS#readme",
   "devDependencies": {
     "electron": "^24.3.0",
-    "standart": "^6.1.0"
-  },
-  "eslintConfig": {
-    "extends": "standard"
+    "eslint": "^8.41.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^16.0.0",
+    "eslint-plugin-promise": "^6.1.1"
   },
   "dependencies": {
     "electron-reload": "^2.0.0-alpha.1"
