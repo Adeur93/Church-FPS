@@ -137,7 +137,7 @@ const MenuPrincipal = [
     submenu: [
       { label: 'Imágenes' },
       { label: 'Videos' },
-      { label: 'presentaciones' }
+      { label: 'Presentaciones' }
     ]
   },
   {
