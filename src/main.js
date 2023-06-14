@@ -127,14 +127,6 @@ const MenuPrincipal = [
     ]
   },
   {
-    label: 'Importar',
-    submenu: [
-      { label: 'Imágenes' },
-      { label: 'Videos' },
-      { label: 'Presentaciones' }
-    ]
-  },
-  {
     label: 'Acerca de la app',
     click () { CrearVentanaAbout() }
   }
